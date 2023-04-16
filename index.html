@@ -4,18 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" type="text/css" />
     <title>Alura | Encriptador de Texto</title>
   </head>
   <body>
     <main>
-      <div class="logo__container"></div>
+      <div class="logo__container">
+        <img src="/assets/logo.svg" alt="alura logo" />
+      </div>
       <section>
         <div class="input__container">
-          <textarea name="" id="" cols="30" rows="10" placeholder="Ingreso el texto aquí"></textarea>
+          <textarea placeholder="Ingrese el texto aquí"></textarea>
         </div>
         <div class="actions__container">
-          <p>Solo letras minusculas y sin acentos</p>
+          <p>
+            <span> <img src="/assets/alert-icon.png" /> </span> Solo letras
+            minusculas y sin acentos
+          </p>
           <div class="buttons__container">
             <button class="btn-1">Encriptar</button>
             <button class="btn-2">Desencriptar</button>
@@ -23,9 +34,13 @@
         </div>
       </section>
       <aside class="">
-        <img src="" alt="" />
-        <p></p>
-        <p></p>
+        <div class="">
+          <img src="/assets/aside-img.svg" alt="" />
+        </div>
+        <div class="aside__text">
+          <p>Ningún mensaje fue encontrado</p>
+          <p>Ingresa el texto que deseas encriptar o desencriptar</p>
+        </div>
       </aside>
     </main>
 
