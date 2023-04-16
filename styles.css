@@ -15,35 +15,33 @@
 *{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  overflow: hidden;
+  box-sizing: border-box; 
   font-family: 'Inter', sans-serif;
 }
 
 html{
-  font-size: 62.5%;
-  
+  font-size: 62.5%;  
+  background-color: var(--light-blue-100);
+  overflow: hidden;
 }
 
 main{
   display:flex;
   flex: wrap;
   gap: 2rem;
-  height: 100vh;
+  height: 95vh;
   width: 100vw;
   padding: 3rem 10rem;
-  background-color: var(--light-blue-100);
 }
 
 .logo__container{
   flex: 2;
-  /* border: 1px solid #000; */
 }
 
 section{
   flex: 6;
-  padding-bottom: 2rem;
-  /* border: 1px solid #000; */
+  display: flex;
+  flex-direction: column;
 }
 
 .input__container{
@@ -58,7 +56,6 @@ textarea{
   border: none;
   outline: none;
   width: 100%;
-  height: 100%;
   font-size: 3rem;
 }
 
@@ -90,7 +87,11 @@ textarea::-webkit-input-placeholder {
 }
 
 .actions__container p span{
-  margin-right: 0.5rem;
+  margin-right: 0.5rem;  
+}
+
+.actions__container p span img{
+  width: 1.3rem;
 }
 
 .buttons__container{
@@ -100,7 +101,8 @@ textarea::-webkit-input-placeholder {
 }
 
 .buttons__container button{
-  padding: 1.8rem 12rem;
+  flex: 1;
+  padding: 1.5rem ;
   border-radius: 1.5rem;
 }
 
@@ -138,6 +140,8 @@ aside{
   justify-content: center;
   align-items: center;
   box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+  color:var(--gray-400);
+  font-size: 2rem;
 }
 
 aside img{
@@ -166,4 +170,90 @@ aside img{
   color: var(--gray-400);
   font-size: 1.5rem;
   margin-top: 1rem;
+}
+
+.aside__paragraph--new{
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.aside__paragraph--new:hover{
+  text-decoration: underline;
+}
+
+footer{  
+  width: 100%;
+  font-size: 1.7  rem;
+  text-align: center;
+}
+
+@media(max-width: 1024px) {
+  main {
+    padding: 3rem 5rem;
+  } 
+}
+
+@media(max-width: 768px) {
+  html{
+    overflow: visible;
+  }
+  main {
+    flex-direction: column;    
+    padding: 4rem;
+    height: 100%;
+  }
+
+  .logo__container img{
+    position: relative;
+    left: -4rem;
+  }
+
+  textarea{
+    margin-top: 0;
+    height: 50vh;
+  }
+
+  aside{
+    padding: 3.5rem;
+  }
+
+  aside img{
+    display: none;
+  }
+
+  .aside__text{
+    margin-top: 0;
+  }
+}
+
+@media(max-width: 425px){
+
+  main{
+    padding: 2rem;
+  }
+
+  .logo__container img{
+    position: relative;
+    left: -4rem;
+    width: 10rem;
+  }
+
+  textarea{
+    margin-top: 2rem;
+    font-size: 2.5rem;
+  }
+
+  .actions__container p{
+    font-size: 0.9rem;
+  }
+
+  .actions__container p span img{
+    width: 1rem;
+  }
+
+  .buttons__container{
+    flex-direction: column;
+  }
+  .buttons__container button{
+    width: 100%;
+  }
 }
