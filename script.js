@@ -10,6 +10,7 @@ const asideText = document.querySelector(".aside__text");
 const copyBtn = document.querySelector("#copy-btn");
 
 const paragraphs = [];
+const clipboard = navigator.clipboard;
 let uniqueId = 0;
 let selectedText,
   listItems = "";
@@ -36,6 +37,7 @@ const displayParagraph = () => {
         otherItem.classList.remove("selected");
       });
       item.classList.add("selected");
+      selectedText = item.innerText;
     });
   });
   console.log(paragraphElement);
@@ -89,6 +91,7 @@ const setAsideStyles = (style) => {
 encryptBtn.addEventListener("click", () => {
   const userInput = textarea.value;
   if (!userInput) return alert("Please enter a valid text");
+  if (!/^[a-z]+$/.test(userInput)) return alert("invalid string");
 
   removeHtmlTag(asideImg, asideText);
 
@@ -110,6 +113,7 @@ encryptBtn.addEventListener("click", () => {
 decryptBtn.addEventListener("click", () => {
   if (!paragraphs.length) return alert("Add and Encrypt new paragraphs");
   if (!selectedText) return alert("Select or copy a valid paragraph");
+
   textarea.value = decryptHandler(selectedText);
 });
 
@@ -123,9 +127,11 @@ textarea.addEventListener("blur", () => {
 });
 
 copyBtn.addEventListener("click", () => {
+  if (!selectedText) return alert("Select one paragraph to decrypt");
+  console.log(selectedText);
   const copiedParagraph = selectedText;
+
   if (copiedParagraph) {
-    const clipboard = navigator.clipboard;
     clipboard.writeText(copiedParagraph);
     clipboard.readText().then((text) => {
       textarea.value = text;
@@ -133,6 +139,3 @@ copyBtn.addEventListener("click", () => {
     });
   }
 });
-
-if (paragraphs.length > 0) {
-}
