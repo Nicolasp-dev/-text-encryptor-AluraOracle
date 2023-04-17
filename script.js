@@ -9,6 +9,7 @@ const asideText = document.querySelector(".aside__text");
 
 const paragraphs = [];
 let uniqueId = 0;
+let selectedText = "";
 
 const removeHtmlTag = (...args) => {
   args.forEach((element) => (element.style.display = "none"));
@@ -23,7 +24,8 @@ const displayParagraph = () => {
   paragraphElement.textContent = paragraph;
 
   paragraphElement.addEventListener("click", () => {
-    console.log(`Item ${paragraphElement.innerText} was clicked`);
+    console.log(`${paragraphElement.innerText}`);
+    selectedText = paragraphElement.innerText;
   });
 
   console.log(paragraphElement);
@@ -55,48 +57,40 @@ const encryptHandler = (text) => {
 };
 
 const decryptHandler = (text) => {
-  const splittedText = text.split("").map((char) => {
-    let decryptedText = "";
+  text = text.split("ai").join("a");
+  text = text.split("enter").join("e");
+  text = text.split("imes").join("i");
+  text = text.split("ober").join("o");
+  text = text.split("ufat").join("u");
+  console.log(text);
+  return text;
+};
 
-    if (char.includes("ai")) {
-      decryptedText = char.replace("ai", "a");
-    } else if (char.includes("e")) {
-      decryptedText = char.replace("e", "enter");
-    } else if (char.includes("i")) {
-      decryptedText = char.replace("i", "imes");
-    } else if (char.includes("o")) {
-      decryptedText = char.replace("o", "ober");
-    } else if (char.includes("u")) {
-      decryptedText = char.replace("u", "ufat");
-    } else {
-      decryptedText = char;
-    }
-
-    return decryptedText;
-  });
-
-  return splittedText.join("");
+const setAsideStyles = (style) => {
+  aside.style.justifyContent = style;
+  aside.style.alignItems = style;
 };
 
 encryptBtn.addEventListener("click", () => {
   const userInput = textarea.value;
-  if (userInput === "") return alert("Please enter a valid text");
+  if (!userInput) return alert("Please enter a valid text");
+
   removeHtmlTag(asideImg, asideText);
 
-  aside.style.justifyContent = "flex-start";
-  aside.style.alignItems = "flex-start";
+  setAsideStyles("flex-start");
 
   const encryptedText = encryptHandler(userInput);
-
   paragraphs.push(encryptedText);
   uniqueId++;
   displayParagraph();
 
   textarea.value = "";
+  textarea.focus();
 });
 
 decryptBtn.addEventListener("click", (e) => {
-  console.log(e);
+  const decryptedText = decryptHandler(selectedText);
+  textarea.value = decryptedText;
 });
 
 textarea.addEventListener("focus", () => {
@@ -104,6 +98,6 @@ textarea.addEventListener("focus", () => {
 });
 
 textarea.addEventListener("blur", () => {
-  textarea.value === "" &&
+  !textarea.value &&
     textarea.setAttribute("placeholder", "Ingrese el texto aquí");
 });
