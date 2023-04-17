@@ -100,6 +100,7 @@ textarea::-webkit-input-placeholder {
   display: flex;
   gap: 2rem;
   align-items: center;
+  padding-bottom: 3rem;
 }
 
 .buttons__container button{
@@ -133,17 +134,21 @@ textarea::-webkit-input-placeholder {
 }
 
 aside{
-  padding: 3rem;
-  flex:2;
-  background-color: var(--white);
-  border-radius: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  flex:2;
+  padding: 3rem;
+  background-color: var(--white);
+  border-radius: 2rem;
+  justify-content: space-between;
   align-items: center;
   box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
   color:var(--gray-400);
   font-size: 2rem;
+}
+
+.aside__container{
+  margin-top: 10rem;
 }
 
 aside img{
@@ -172,8 +177,29 @@ aside img{
   margin-top: 1rem;
   cursor: pointer;
 }
+
 .aside__paragraph--new:hover{
   text-decoration: underline;
+}
+
+.selected{
+  font-weight: bold;
+}
+
+.copy__btn{  
+  margin-top: 1rem;
+  display: none;
+  width: 100%;
+  padding: 1.5rem ;
+  border-radius: 1.5rem;
+  background-color: transparent;
+  color: var(--dark-blue-300);
+  border: 1px solid var(--dark-blue-300);
+}
+
+.copy__btn:hover{
+  background-color: var(--gray-200);
+  cursor: pointer;
 }
 
 footer{  
