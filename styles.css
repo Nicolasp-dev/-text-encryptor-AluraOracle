@@ -203,9 +203,22 @@ aside img{
 }
 
 footer{  
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  font-size: 1.7  rem;
+  font-size: 1.8rem;
   text-align: center;
+}
+
+footer span a img{
+  margin-left: 1rem;
+  width: 25px;
+  height: 25px;
+}
+
+footer span a{
+  cursor: pointer;
 }
 
 @media(max-width: 1024px) {
@@ -281,5 +294,9 @@ footer{
   }
   .buttons__container button{
     width: 100%;
+  }
+
+  footer{
+    font-size: 1.5rem;
   }
 }

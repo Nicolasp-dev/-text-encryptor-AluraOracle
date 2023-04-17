@@ -40,7 +40,6 @@ const displayParagraph = () => {
       selectedText = item.innerText;
     });
   });
-  console.log(paragraphElement);
 };
 
 const displayCopyBtn = () => {
@@ -90,8 +89,8 @@ const setAsideStyles = (style) => {
 
 encryptBtn.addEventListener("click", () => {
   const userInput = textarea.value;
-  if (!userInput) return alert("Please enter a valid text");
-  if (!/^[a-z]+$/.test(userInput)) return alert("invalid string");
+  if (!userInput) return alert("Porfavor ingrese un texto");
+  if (!/^[a-z]+$/.test(userInput)) return alert("Texto no valido");
 
   removeHtmlTag(asideImg, asideText);
 
@@ -111,8 +110,8 @@ encryptBtn.addEventListener("click", () => {
 });
 
 decryptBtn.addEventListener("click", () => {
-  if (!paragraphs.length) return alert("Add and Encrypt new paragraphs");
-  if (!selectedText) return alert("Select or copy a valid paragraph");
+  if (!paragraphs.length) return alert("Aun no has ingresado ningún text");
+  if (!selectedText) return alert("Seleccione o copie un parrafo");
 
   textarea.value = decryptHandler(selectedText);
 });
@@ -127,8 +126,8 @@ textarea.addEventListener("blur", () => {
 });
 
 copyBtn.addEventListener("click", () => {
-  if (!selectedText) return alert("Select one paragraph to decrypt");
-  console.log(selectedText);
+  if (!selectedText) return alert("Seleccione un parrafo de la barra");
+
   const copiedParagraph = selectedText;
 
   if (copiedParagraph) {
