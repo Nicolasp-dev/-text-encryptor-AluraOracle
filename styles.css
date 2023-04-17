@@ -46,10 +46,12 @@ section{
 
 .input__container{
   height: 90%;
+  display: flex;
+  align-items: end;
 }
 
 textarea{
-  margin-top: 10rem;
+  height: 80%;
   color: var(--dark-blue-300);
   background: none;
   resize: none;
@@ -160,12 +162,6 @@ aside img{
   font-weight: 800;
 }
 
-.aside__text p:first-child{
-  color: var(--gray-500);
-  font-size: 2rem;
-  font-weight: 800;
-}
-
 .aside__text p:last-child{
   color: var(--gray-400);
   font-size: 1.5rem;
@@ -210,6 +206,10 @@ footer{
   textarea{
     margin-top: 0;
     height: 50vh;
+  }
+
+  textarea::onFocus{
+
   }
 
   aside{

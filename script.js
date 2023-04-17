@@ -8,6 +8,7 @@ const asideImg = document.querySelector("#aside__img");
 const asideText = document.querySelector(".aside__text");
 
 const paragraphs = [];
+let uniqueId = 0;
 
 const removeHtmlTag = (...args) => {
   args.forEach((element) => (element.style.display = "none"));
@@ -15,8 +16,18 @@ const removeHtmlTag = (...args) => {
 
 const displayParagraph = () => {
   const paragraph = paragraphs.slice(-1);
-  const text = `<p id="aside-text" class="aside__paragraph--new">${paragraph}</p>`;
-  aside.insertAdjacentHTML("beforeend", text);
+
+  const paragraphElement = document.createElement("p");
+  paragraphElement.setAttribute("id", `item-${uniqueId}`);
+  paragraphElement.classList.add("aside__paragraph--new");
+  paragraphElement.textContent = paragraph;
+
+  paragraphElement.addEventListener("click", () => {
+    console.log(`Item ${paragraphElement.innerText} was clicked`);
+  });
+
+  console.log(paragraphElement);
+  aside.appendChild(paragraphElement);
 };
 
 const encryptHandler = (text) => {
@@ -78,18 +89,21 @@ encryptBtn.addEventListener("click", () => {
   const encryptedText = encryptHandler(userInput);
 
   paragraphs.push(encryptedText);
+  uniqueId++;
   displayParagraph();
-
-  const encryptedParagraph = document.querySelector("#aside-text");
-  console.log(encryptedParagraph);
-
-  encryptedParagraph.addEventListener("click", (e) => {
-    console.log(e);
-  });
 
   textarea.value = "";
 });
 
 decryptBtn.addEventListener("click", (e) => {
   console.log(e);
+});
+
+textarea.addEventListener("focus", () => {
+  textarea.removeAttribute("placeholder");
+});
+
+textarea.addEventListener("blur", () => {
+  textarea.value === "" &&
+    textarea.setAttribute("placeholder", "Ingrese el texto aquí");
 });
