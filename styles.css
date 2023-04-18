@@ -247,10 +247,6 @@ footer span a{
     height: 50vh;
   }
 
-  textarea::onFocus{
-
-  }
-
   aside{
     padding: 3.5rem;
   }

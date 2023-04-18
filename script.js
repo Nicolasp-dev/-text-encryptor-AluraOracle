@@ -90,7 +90,7 @@ const setAsideStyles = (style) => {
 encryptBtn.addEventListener("click", () => {
   const userInput = textarea.value;
   if (!userInput) return alert("Porfavor ingrese un texto");
-  if (!/^[a-z]+$/.test(userInput)) return alert("Texto no valido");
+  if (!/^[a-z\s]+$/.test(userInput)) return alert("Texto no valido");
 
   removeHtmlTag(asideImg, asideText);
 
