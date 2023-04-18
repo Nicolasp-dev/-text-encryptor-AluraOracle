@@ -29,9 +29,9 @@ main{
   display:flex;
   flex: wrap;
   gap: 2rem;
-  height: 95vh;
+  height: 92vh;
   width: 100vw;
-  padding: 3rem 10rem;
+  padding: 3rem 10rem 1rem;
 }
 
 .logo__container{
@@ -209,6 +209,7 @@ footer{
   width: 100%;
   font-size: 1.8rem;
   text-align: center;
+  font-weight: 300;
 }
 
 footer span a img{
